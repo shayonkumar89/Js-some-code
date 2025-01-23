@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Js Dom Summary</title>
+</head>
+<body>
+        
+
+           <h1> Final Dom Event Handlers</h1>
+           <h3 id="handel-status">Default Text</h3>
+
+
+           <p id="update" >always change </p>
+           <input id="int-update" type="text">
+           <button id="btn-update" onclick="updateText()" >update</button>
+           <br>
+           <br>
+
+
+           <button onclick="handelOnclick()"> Handle Event by Add onclick Function</button>
+           <button id="handel-even">Handel by another even</button>
+           <script>
+                    //option 1
+                    function handelOnclick(){
+                    const handelStatus= document.getElementById('handel-status') ;
+                    handelStatus.innerText='Handel by function attached on onclick attribute';
+                    }
+
+                    //option 2
+                    document.getElementById('handel-even').addEventListener('click',function(){
+                                        const handelStatus=document.getElementById('handel-status');
+                                        handelStatus.innerText='Text update by add Event listener button'
+                    })
+  
+
+            // option 2 recap
+                    // document.getElementById('btn-update').addEventListener('click',function(){                          
+                    //                     const updateAll = document.getElementById('int-update');
+                    //                     const inputFld= updateAll.value;
+                    //                    const p=document.getElementById('update');
+                    //                    p.innerText=inputFld;
+                    //                    updateAll.value='';
+
+                    // })
+
+            // option 2 recap another way
+            
+            function updateText(){
+                    const updateH3=document.getElementById('int-update');  
+                    const updateT4=updateH3.value;
+              updateT4.innerText=document.getElementById('btn-update');
+              const updateAll=updateT4;
+              const p=document.getElementById('update');
+              p.innerText=updateAll;
+              updateH3.value='';
+              
+                    
+            }
+           </script>         
+</body>
+</html>
