@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Event Bubble</title>
+                    <style>
+                                        #item-2{
+                                                            border: 2px solid navy;
+                                        }
+                                        ul{
+                                                            border: 2px solid red;
+                                        }
+                                        body{
+                                                            border: 8px solid yellowgreen;
+                                        }
+                                        section{
+                                                            border: 5px solid green;
+                                        }
+                    </style>
+</head>
+<body id="body">
+       <h1>Exploring Event Bubble</h1>
+       <section id="list-container">
+                    <ul id="list-ul">
+                                        <li id="item-1">Lorem, ipsum.</li>
+                                        <li id="item-2">Voluptates, reprehenderit.</li>
+                                        <li id="item-3">Vero, tempora!</li>
+                                        <li id="item-4">Labore, enim.</li>
+                                        <li id="item-5">Excepturi, tenetur?</li>
+                                        <li id="item-6">Sapiente, non.</li>
+                    </ul>
+       </section>  
+       
+       <script>
+             document.getElementById('item-2').addEventListener('click',function(event){
+             console.log('click item 2 ul');
+             event.stopImmediatePropagation();
+             })
+
+             document.getElementById('item-2').addEventListener('click',function(event){
+             console.log('click item 3 ul');
+             })
+
+             document.getElementById('item-2').addEventListener('click',function(event){
+             console.log('click item 4 ul');
+             })
+
+             document.getElementById('item-2').addEventListener('click',function(event){
+             console.log('click item 5 ul');
+             })
+             document.getElementById('item-2').addEventListener('click',function(event){
+             console.log('click item 6 ul');
+             })
+
+
+           document.getElementById('list-ul').addEventListener('click',function(){
+           console.log('ul second click');
+           })
+
+          document.getElementById('list-container').addEventListener('click',function(){
+          console.log('section container third clicked');
+          })
+          document.getElementById('body').addEventListener('click',function(){
+          console.log('body contain story fourth click');                                                    
+           })
+       </script>
+</body>
+</html>

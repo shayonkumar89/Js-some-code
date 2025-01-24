@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Event Delegate </title>
+</head>
+<body>
+                    <h1>Event Delegate</h1>
+           <section>
+                  <ul id="list-container">
+                    <li class="item">Lorem, ipsum.</li>
+                    <li class="item">Possimus, tenetur.</li>
+                    <li class="item">Delectus, quis.</li>
+                    <li class="item">Adipisci, nam.</li>
+                    <li class="item">Ducimus, asperiores.</li>
+                    <li class="item">Aspernatur, delectus!</li>
+                  </ul>
+                  <button id="btn-add-item">Add Item</button>
+           </section>  
+           
+           <script>
+//                   const items = document.getElementsByClassName('item');
+//                   for(const item of items){
+//                     item.addEventListener('click',function(){
+//                                         console.log(event.target.parentNode.removeChild(event.target));
+                                        
+//                     })
+                    
+//                   }
+
+document.getElementById('list-container').addEventListener('click',function(event){
+               event.target.parentNode.removeChild(event.target);     
+})
+
+                  document.getElementById('btn-add-item').addEventListener('click',function(){
+                    //jekhane add korbo  tar parents id 
+                    const listContainer=document.getElementById('list-container');
+                      const li = document.createElement('li');
+                      li.innerText='Brand  new text added'
+                      li.classList.add('item');
+                      listContainer.appendChild(li);
+                  })
+                    
+           </script>
+</body>
+</html>
